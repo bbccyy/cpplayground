@@ -143,11 +143,13 @@
     <ClCompile Include="P2\Problem2.cpp" />
     <ClCompile Include="p5\Problem5.cpp" />
     <ClCompile Include="P6\Problem6.cpp" />
+    <ClCompile Include="P7 Reverse Integer\Problem7.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="P2\Problem2.h" />
     <ClInclude Include="p5\Problem5.h" />
     <ClInclude Include="P6\Problem6.h" />
+    <ClInclude Include="P7 Reverse Integer\Problem7.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -27,6 +27,9 @@
     <ClCompile Include="P2\Problem2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="P7 Reverse Integer\Problem7.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="p5\Problem5.h">
@@ -36,6 +39,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="P2\Problem2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P7 Reverse Integer\Problem7.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
