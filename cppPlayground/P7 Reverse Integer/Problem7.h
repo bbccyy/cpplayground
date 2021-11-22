@@ -4,5 +4,6 @@ class Problem7
 {
 public:
 	int reverse(int x);
+	void runTest();
 };
 

@@ -38,3 +38,14 @@ int Problem7::reverse(int x)
 
 	return ret;
 }
+
+
+void Problem7::runTest()
+{
+	int input = -2147483648;
+	int ret = reverse(input);
+
+	printf("input = %d, reverse = %d", input, ret);
+
+	return;
+}
