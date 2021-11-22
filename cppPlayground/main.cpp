@@ -3,16 +3,16 @@
 #include <string>
 #include <vector>
 
-#include "P7 Reverse Integer/Problem7.h"
+#include "P8 String to Integer/Problem8.h"
 
 using namespace std;
 
 int main()
 {
    
-    auto sln7 = new Problem7();
+    auto sln8 = new Problem8();
 
-	sln7->runTest();
+	sln8->runTest();
 
     return 0;
 }
