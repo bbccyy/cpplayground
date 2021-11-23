@@ -3,16 +3,15 @@
 #include <string>
 #include <vector>
 
-#include "P8 String to Integer/Problem8.h"
+#include "P010 Reg/Problem10.h"
 
 using namespace std;
 
 int main()
 {
-   
-    auto sln8 = new Problem8();
+    auto sln10 = new Problem10();
 
-	sln8->runTest();
+	sln10->runTest();
 
     return 0;
 }

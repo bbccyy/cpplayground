@@ -18,36 +18,15 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="p5\Problem5.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="P6\Problem6.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="P2\Problem2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="P7 Reverse Integer\Problem7.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="P8 String to Integer\Problem8.cpp">
+    <ClCompile Include="P007 Reverse Integer\Problem7.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="p5\Problem5.h">
+    <ClInclude Include="P010 Reg\Problem10.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="P6\Problem6.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="P2\Problem2.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="P7 Reverse Integer\Problem7.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="P8 String to Integer\Problem8.h">
+    <ClInclude Include="P007 Reverse Integer\Problem7.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
