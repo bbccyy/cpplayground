@@ -86,5 +86,5 @@ void Problem2::runTest()
 
     ListNode* ret = addTwoNumbers2(l1, l2);
 
-    printf("val = %d\n", ret->val);
+    //printf("val = %d\n", ret->val);
 }

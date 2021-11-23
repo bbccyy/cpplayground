@@ -32,5 +32,5 @@ void Problem6::testRun()
 	string input = "PAYPALISHIRING";
 	string output = convert(input, 3);
 
-	printf(output.c_str());
+	//printf(output.c_str());
 }

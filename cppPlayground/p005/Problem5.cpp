@@ -54,5 +54,5 @@ void Problem5::runTest()
 
 	auto result = longestPalindrome(str);
 
-	printf("%s",result.c_str());
+	//printf("%s",result.c_str());
 }

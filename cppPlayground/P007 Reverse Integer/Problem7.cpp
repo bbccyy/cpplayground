@@ -1,5 +1,5 @@
 #include "Problem7.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 int Problem7::reverse(int x)
 {
@@ -45,7 +45,7 @@ void Problem7::runTest()
 	int input = -2147483648;
 	int ret = reverse(input);
 
-	printf("input = %d, reverse = %d", input, ret);
+	//printf("input = %d, reverse = %d", input, ret);
 
 	return;
 }

@@ -1,5 +1,5 @@
 #include "Problem8.h"
-#include <stdio.h>
+#include <iostream>
 
 int Problem8::myAtoi(string s)
 {
@@ -91,7 +91,8 @@ void Problem8::runTest()
 	string input = "  -  413";
 	int ret = myAtoi(input);
 
-	printf("input = %s, output = %d", input.c_str(), ret);
-
+	//printf("input = %s, output = %d", input.c_str(), ret);
+	cout << "input = " << input << ", output = " << ret << endl;
+	system("pause");
 	return;
 }
