@@ -150,13 +150,72 @@ public:
 	{
 		parsePt(p);
 
-		int a = 1;
-		return true;
+		int arr_sz = arr.size();
+		int str_sz = s.length();
+
+		if (arr_sz == 0 || str_sz == 0)
+		{
+			if (arr_sz == str_sz) return true;
+			if (arr_sz == 0) return false;
+		}
+
+		int row_sz = str_sz + 1;
+
+		vector<bool> tb = vector<bool>((arr_sz) * (row_sz));
+		auto pt = arr[0];
+		bool hasMatch = false;
+		for (int j = 0; j < row_sz; ++j)
+		{
+			if (pt.Match(s, 0, j)) {
+				tb[j] = true;
+				hasMatch = true;
+			}
+		}
+
+		if (!hasMatch)
+			return false;
+
+		int tb_base = 0, tb_cur = 0;
+		for (int i = 1; i < arr_sz; ++i)
+		{
+			auto pt = arr[i];
+			tb_base = row_sz * (i-1);
+			for (int j = 0; j < row_sz; ++j)
+			{
+				tb_cur = tb_base + j;
+				if (tb[tb_cur])
+				{
+					if (pt.star)
+					{
+						tb[tb_cur + row_sz] = true;
+					}
+					if (j < row_sz)
+					{
+						for (int k = 1; k < row_sz - j; ++k)
+						{
+							if (tb[tb_cur + row_sz + k] == false && pt.Match(s, j, j + k))
+							{
+								tb[tb_cur + row_sz + k] = true;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		bool ret = tb[(arr_sz) * (row_sz)-1];
+
+		return ret;
 	}
+
+
 
 
 	void runTest()
 	{
-		isMatch("mississippi", "mis*is*p*.");
+		//auto ret = isMatch("aab", "c*a*b");
+		auto ret = isMatch("mississippi", "mis*is*ip*.");
+		cout << "ret = " << ret << endl;
+		//system("pause");
 	}
 };
