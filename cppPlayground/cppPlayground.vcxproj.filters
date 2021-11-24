@@ -29,5 +29,8 @@
     <ClInclude Include="P007 Reverse Integer\Problem7.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="P011 Contain w most water\Problem11.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
