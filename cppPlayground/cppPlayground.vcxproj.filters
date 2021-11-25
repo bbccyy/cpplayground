@@ -32,5 +32,8 @@
     <ClInclude Include="P011 Contain w most water\Problem11.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="P012 Int to Roman\Problem12.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
