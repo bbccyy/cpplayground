@@ -145,6 +145,11 @@
   <ItemGroup>
     <ClInclude Include="P007 Reverse Integer\Problem7.h" />
     <ClInclude Include="P010 Reg\Problem10.h" />
+<<<<<<< HEAD
+=======
+    <ClInclude Include="P011 Contain w most water\Problem11.h" />
+    <ClInclude Include="P012 Int to Roman\Problem12.h" />
+>>>>>>> c2c55fd41a16cb7d3f9b216f5d2008a9d4bbde1a
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
