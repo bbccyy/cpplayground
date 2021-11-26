@@ -49,7 +49,7 @@ public:
 
 	void runTest()
 	{
-		string ret = intToRoman(3);
+		string ret = intToRoman(1123);
 
 		cout << "ret = " << ret << endl;
 	}

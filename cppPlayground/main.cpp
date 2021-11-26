@@ -4,7 +4,6 @@
 #include <vector>
 
 #include "P010 Reg/Problem10.h"
-#include "P011 Contain w most water/Problem11.h"
 #include "P012 Int to Roman/Problem12.h"
 
 using namespace std;
@@ -16,6 +15,6 @@ int main()
 
     auto sln12 = new Problem12();
     sln12->runTest();
-
+	system("pause");
     return 0;
 }
