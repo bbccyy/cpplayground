@@ -21,9 +21,15 @@ public:
             int sz = ret.size();
             if (sz == 0)
             {
+                stringstream ss;
                 for (int k = 0; k < cur.size(); ++k)
                 {
-                    ret.emplace_back(cur.substr(k, 1));
+                    ss.clear();
+                    ss << cur[k];
+                    string tmp;
+                    ss >> tmp;
+                    //ret.emplace_back(cur.substr(k, 1));
+                    ret.emplace_back(tmp);
                 }
             }
             else
