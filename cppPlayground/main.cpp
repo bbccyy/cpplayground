@@ -5,7 +5,7 @@
 
 #include "P010 Reg/Problem10.h"
 //#include "P023 Merge k Sorted Lists/Problem23.h"
-#include "P028 Implement strStr/Problem28.h"
+#include "P029 Divide Two Integers/Problem29.h"
 
 using namespace std;
 
@@ -14,7 +14,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem28();
+    auto sln = new Problem29();
     sln->runTest();
 	//system("pause");
     return 0;
