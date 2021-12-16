@@ -7,6 +7,7 @@
 //#include "P023 Merge k Sorted Lists/Problem23.h"
 #include "P030 Substring with Concatenation of All Words/Problem30.h"
 #include "P031 Next Permutation/Problem31.h"
+#include "P032 Longest Valid Parentheses/Problem32.h"
 
 using namespace std;
 
