@@ -8,6 +8,7 @@
 #include "P030 Substring with Concatenation of All Words/Problem30.h"
 #include "P031 Next Permutation/Problem31.h"
 #include "P032 Longest Valid Parentheses/Problem32.h"
+#include "P033 Search in Rotated Sorted Array/Problem33.h"
 
 using namespace std;
 
