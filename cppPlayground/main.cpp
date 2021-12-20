@@ -10,7 +10,7 @@
 #include "P032 Longest Valid Parentheses/Problem32.h"
 #include "P033 Search in Rotated Sorted Array/Problem33.h"
 #include "P034 Find First and Last Position of Element in Sorted Array/Problem34.h"
-#include "P035 Search Insert Position/Problem35.h"
+#include "P036 Valid Sudoku/Problem36.h"
 
 using namespace std;
 
@@ -19,7 +19,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem35();
+    auto sln = new Problem36();
     sln->runTest();
 	//system("pause");
     return 0;
