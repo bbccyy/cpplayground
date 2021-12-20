@@ -24,7 +24,7 @@ public:
 			}
 			if (nums[m] > target)
 			{
-				e = m - 1;
+				e = m;   //do not set e with "m - 1", conside test case:[1,3,5,6], target=2
 			}
 			else if (nums[m] < target)
 			{
@@ -37,7 +37,7 @@ public:
 
 	void runTest()
 	{
-		vector<int> input = { 2 };
+		vector<int> input = { 1 };
 		int ret = searchInsert(input, 5);
 
 		cout << "ret = " << ret << endl;
