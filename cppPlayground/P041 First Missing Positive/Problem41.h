@@ -11,9 +11,9 @@ public:
     int firstMissingPositive(vector<int>& nums) {
         int sz = nums.size();
         int p = 0, q = sz - 1;
-        while (p < q)
+        while (p <= q)
         {
-            if (nums[p] <= 0 || nums[p] > sz)
+            if (nums[p] <= 0 || nums[p] > q + 1)
             {
                 nums[p] = nums[q];
                 --q;
@@ -48,7 +48,7 @@ public:
 
     void runTest()
     {
-        vector<int> input = { 7,8,9,11,12 };
+        vector<int> input = { 1,2,2,1,3,1,0,4,0 };
 
         int ret = firstMissingPositive(input);
 
