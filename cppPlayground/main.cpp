@@ -13,7 +13,7 @@
 #include "P036 Valid Sudoku/Problem36.h"
 //#include "P037 Sudoku Solver/Problem37.h"
 #include "P038 Count and Say/Problem38.h"
-#include "P040 Combination Sum II/Problem40.h"
+#include "P041 First Missing Positive/Problem41.h"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem40();
+    auto sln = new Problem41();
     sln->runTest();
 	//system("pause");
     return 0;
