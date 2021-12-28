@@ -14,6 +14,7 @@
 //#include "P037 Sudoku Solver/Problem37.h"
 #include "P038 Count and Say/Problem38.h"
 #include "P041 First Missing Positive/Problem41.h"
+#include "P042 Trapping Rain Water/Problem42.h"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem41();
+    auto sln = new Problem42();
     sln->runTest();
 	//system("pause");
     return 0;
