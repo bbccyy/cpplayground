@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -45,7 +46,13 @@ public:
 
 	int computeWaterVolume(vector<int>& height, int s, int e)
 	{
-		return 0;
+		int h = min(height[s], height[e]);
+		int ret = 0;
+		for (int i = s + 1; i < e; ++i)
+		{
+			ret += h - height[i];
+		}
+		return ret;
 	}
 
 	void runTest()
