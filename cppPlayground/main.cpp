@@ -15,6 +15,7 @@
 #include "P038 Count and Say/Problem38.h"
 #include "P041 First Missing Positive/Problem41.h"
 #include "P042 Trapping Rain Water/Problem42.h"
+#include "P043 Multiply Strings/Problem43.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem42();
+    auto sln = new Problem43();
     sln->runTest();
 	//system("pause");
     return 0;
