@@ -16,6 +16,7 @@
 #include "P041 First Missing Positive/Problem41.h"
 #include "P042 Trapping Rain Water/Problem42.h"
 #include "P043 Multiply Strings/Problem43.h"
+#include "P044 Wildcard Matching/Problem44.h"
 
 using namespace std;
 
@@ -24,7 +25,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem43();
+    auto sln = new Problem44();
     sln->runTest();
 	system("pause");
     return 0;
