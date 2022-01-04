@@ -29,6 +29,6 @@ int main()
 
     auto sln = new Problem46();
     sln->runTest();
-	//system("pause");
+	system("pause");
     return 0;
 }
