@@ -18,7 +18,7 @@
 #include "P043 Multiply Strings/Problem43.h"
 #include "P044 Wildcard Matching/Problem44.h"
 #include "P045 Jump Game II/Problem45.h"
-#include "P046 Permutations/Problem46.h"
+#include "P047 Permutations II/Problem47.h"
 
 using namespace std;
 
@@ -27,7 +27,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem46();
+    auto sln = new Problem47();
     sln->runTest();
 	system("pause");
     return 0;
