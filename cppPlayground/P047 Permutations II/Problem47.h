@@ -2,14 +2,44 @@
 
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 
 using namespace std;
 
 class Problem47
 {
 public:
+	vector<vector<int>> output;
+	vector<int> cur;
+	int sz = 0;
+public:
 	vector<vector<int>> permuteUnique(vector<int>& nums) {
+		sz = size(nums);
+		unordered_map<int, int> map;
+		output.clear();
+		cur.clear();
+		for (auto x : nums) ++map[x];
+		generatePermuation(map);
+		return output;
+	}
 
+	void generatePermuation(unordered_map<int, int>& map)
+	{
+		if (size(cur) == sz)
+		{
+			output.emplace_back(cur);
+			return;
+		}
+
+		for (auto& elem : map)
+		{
+			if (elem.second == 0) continue;
+			cur.emplace_back(elem.first);
+			elem.second--;
+			generatePermuation(map);
+			elem.second++;
+			cur.pop_back();
+		}
 	}
 
 	void nextPermutation(vector<int>& nums)
@@ -41,15 +71,19 @@ public:
 
 	void runTest()
 	{
-		vector<int> input = { 1,2,6,8,7,4,3 };
+		vector<int> input = { 3,2,1,3 };
 
-		nextPermutation(input);
+		auto ret = permuteUnique(input);
 
-		cout << "ret = ";
-		for (int i : input)
+		cout << "ret = " << endl;
+		for (int i = 0; i < ret.size(); ++i)
 		{
-			cout << i << " ";
+			cout << "[";
+			for (int j = 0; j < ret[i].size(); ++j)
+			{
+				cout << ret[i][j] << " ";
+			}
+			cout << "]" << endl;
 		}
-		cout << endl;
 	}
 };
