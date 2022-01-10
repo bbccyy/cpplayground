@@ -19,7 +19,7 @@
 #include "P044 Wildcard Matching/Problem44.h"
 #include "P045 Jump Game II/Problem45.h"
 #include "P047 Permutations II/Problem47.h"
-#include "P048 Rotate Image/Problem48.h"
+#include "P049 Group Anagrams/Problem49.h"
 
 using namespace std;
 
@@ -28,7 +28,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem48();
+    auto sln = new Problem49();
     sln->runTest();
 	system("pause");
     return 0;
