@@ -20,6 +20,7 @@
 #include "P045 Jump Game II/Problem45.h"
 #include "P047 Permutations II/Problem47.h"
 #include "P049 Group Anagrams/Problem49.h"
+#include "P050 PowXN/Problem50.h"
 
 using namespace std;
 
@@ -28,7 +29,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem49();
+    auto sln = new Problem50();
     sln->runTest();
 	system("pause");
     return 0;
