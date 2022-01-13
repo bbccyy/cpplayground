@@ -5,12 +5,28 @@
 #include <string>
 #include <unordered_map>
 #include <sstream>
+#include <algorithm>
 
 using namespace std;
 
 class Problem49
 {
 public:
+	vector<vector<string>> groupAnagrams2(vector<string>& strs) {
+		vector<vector<string>> output;
+		unordered_map<string, vector<string>> tb;
+		for (auto s : strs)
+		{
+			auto key = s;
+			sort(key.begin(), key.end());
+			tb[key].emplace_back(s);
+		}
+		for (auto p : tb)
+		{
+			output.emplace_back(p.second);
+		}
+		return output;
+	}
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
 		vector<vector<string>> output;
 		unordered_map<string, vector<string>> tb;
@@ -45,7 +61,7 @@ public:
     {
 		vector<string> input = { "eat","tea","tan","ate","nat","bat" };
 
-		auto ret = groupAnagrams(input);
+		auto ret = groupAnagrams2(input);
 
 		cout << "ret = \n";
 		for (auto arr : ret)
