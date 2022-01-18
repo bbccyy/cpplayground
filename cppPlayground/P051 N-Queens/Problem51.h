@@ -9,16 +9,20 @@ class Problem51
 {
 public:
 	vector<vector<string>> output;
+	vector<bool> helperRight;
+	vector<bool> helperLeft;
+
 public:
 	vector<vector<string>> solveNQueens(int n) {
 		vector<int> col = vector<int>(n);
-		vector<bool> helper = vector<bool>(n);
-		NQueensSub(col, helper, 1, col.size());
+		helperRight = vector<bool>(n * 2);
+		helperLeft = vector<bool>(n * 2);
+		NQueensSub(col, 1, col.size());
 		
 		return output;
 	}
 
-	void NQueensSub(vector<int>& col, vector<bool> helper, int curRow, int maxCol)
+	void NQueensSub(vector<int>& col, int curRow, int maxCol)
 	{
 		if (curRow > maxCol)
 		{
@@ -27,13 +31,17 @@ public:
 		}
 		for (int c = 0; c < maxCol; ++c)
 		{
-			if (col[c] > 0 || helper[c]) continue;
+			if (col[c] > 0 || helperRight[c] || helperLeft[c]) continue;
 			col[c] = curRow;
-			helper[c] = true;
-			shiftRight(helper);
-			NQueensSub(col, helper, curRow + 1, maxCol);
-			shiftLeft(helper);
-			helper[c] = false;
+			helperRight[c] = true;
+			helperLeft[c] = true;
+			shiftRight(helperRight);
+			shiftLeft(helperLeft);
+			NQueensSub(col, curRow + 1, maxCol);
+			shiftLeft(helperRight);
+			shiftRight(helperLeft);
+			helperRight[c] = false;
+			helperLeft[c] = false;
 			col[c] = 0;
 		}
 	}
@@ -47,7 +55,7 @@ public:
 			int tar = col[i] - 1;
 			for (int j = 0; j < col.size(); ++j)
 			{
-				if (j = tar) str.append("Q");
+				if (j == tar) str.append("Q");
 				else str.append(".");
 			}
 			ret[tar] = str;
@@ -79,6 +87,17 @@ public:
 
 	void runTest()
 	{
-		
+		auto ret = solveNQueens(4);
+
+		cout << "ret = " << endl;
+
+		for (auto& lst : ret)
+		{
+			cout << "Q:" << endl;
+			for (auto str : lst)
+			{
+				cout << str << endl;
+			}
+		}
 	}
 };
