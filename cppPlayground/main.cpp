@@ -21,6 +21,7 @@
 #include "P047 Permutations II/Problem47.h"
 #include "P049 Group Anagrams/Problem49.h"
 #include "P051 N-Queens/Problem51.h"
+#include "P052 N-Queens II/Problem52.h"
 
 using namespace std;
 
@@ -29,7 +30,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem51();
+    auto sln = new Problem52();
     sln->runTest();
 	system("pause");
     return 0;
