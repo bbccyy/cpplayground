@@ -52,10 +52,10 @@ public:
 		for (int i = 0; i < col.size(); ++i)
 		{
 			string str;
-			int tar = col[i] - 1;
+			int tar = col[i] - 1; //the row index current ret stays
 			for (int j = 0; j < col.size(); ++j)
 			{
-				if (j == tar) str.append("Q");
+				if (j == i) str.append("Q");
 				else str.append(".");
 			}
 			ret[tar] = str;
@@ -87,7 +87,7 @@ public:
 
 	void runTest()
 	{
-		auto ret = solveNQueens(4);
+		auto ret = solveNQueens(1);
 
 		cout << "ret = " << endl;
 
