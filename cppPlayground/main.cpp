@@ -20,7 +20,7 @@
 #include "P045 Jump Game II/Problem45.h"
 #include "P047 Permutations II/Problem47.h"
 #include "P049 Group Anagrams/Problem49.h"
-#include "P053 Maximum Subarray/Problem53.h"
+#include "P054 Spiral Matrix/Problem54.h"
 
 using namespace std;
 
@@ -29,7 +29,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem53();
+    auto sln = new Problem54();
     sln->runTest();
 	system("pause");
     return 0;
