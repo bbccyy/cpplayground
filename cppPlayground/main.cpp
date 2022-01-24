@@ -21,6 +21,7 @@
 #include "P047 Permutations II/Problem47.h"
 #include "P049 Group Anagrams/Problem49.h"
 #include "P054 Spiral Matrix/Problem54.h"
+#include "P055 Jump Game/Problem55.h"
 
 using namespace std;
 
@@ -29,7 +30,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem54();
+    auto sln = new Problem55();
     sln->runTest();
 	system("pause");
     return 0;
