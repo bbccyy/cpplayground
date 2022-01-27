@@ -22,7 +22,7 @@
 #include "P049 Group Anagrams/Problem49.h"
 #include "P054 Spiral Matrix/Problem54.h"
 #include "P055 Jump Game/Problem55.h"
-#include "P056 Merge Intervals/Problem56.h"
+#include "P057 Insert Interval/Problem57.h"
 
 using namespace std;
 
@@ -31,7 +31,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem56();
+    auto sln = new Problem57();
     sln->runTest();
 	system("pause");
     return 0;
