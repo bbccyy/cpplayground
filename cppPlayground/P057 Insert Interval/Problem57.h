@@ -24,6 +24,11 @@ public:
 		//binary search start point: origin = [[2,5][7,9] ...], new = [3,e] -> find the greatest start point that less or equal than 3, which is [2,5]
 		//binary search end point: origin = [... [21,30][31,33]], new = [17, 31] -> find the smallest end point that greater or equals than 31, which is [31,33]
 		//merge if necessary 
+
+		int sz = size(intervals);
+		int i = 0, j = sz - 1, m = 0;
+		
+		//just loop on the input array is fine, the over all time complexity would be O(n)
 	}
 
 	void runTest()
