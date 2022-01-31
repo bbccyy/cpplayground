@@ -20,16 +20,35 @@ Output: [[1,5],[6,9]]
 class Problem57
 {
 public:
-	vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
-		//binary search start point: origin = [[2,5][7,9] ...], new = [3,e] -> find the greatest start point that less or equal than 3, which is [2,5]
-		//binary search end point: origin = [... [21,30][31,33]], new = [17, 31] -> find the smallest end point that greater or equals than 31, which is [31,33]
-		//merge if necessary 
+    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval)
+    {
+        vector<vector<int>> result;
 
-		int sz = size(intervals);
-		int i = 0, j = sz - 1, m = 0;
-		
-		//just loop on the input array is fine, the over all time complexity would be O(n)
-	}
+        for (size_t i = 0; i < intervals.size(); i++)
+        {
+            //  the new interval is after the range of other interval, so we can leave the current interval baecause the new one does not overlap with it
+            if (intervals[i][1] < newInterval[0])
+            {
+                result.push_back(intervals[i]);
+            }
+            // the new interval's range is before the other, so we can add the new interval and update it to the current one
+            else if (intervals[i][0] > newInterval[1])
+            {
+                result.push_back(newInterval);
+                newInterval = intervals[i];
+            }
+            // the new interval is in the range of the other interval, we have an overlap, so we must choose the min for start and max for end of interval 
+            else if (intervals[i][1] >= newInterval[0] || intervals[i][0] <= newInterval[1])
+            {
+                newInterval[0] = min(intervals[i][0], newInterval[0]);
+                newInterval[1] = max(newInterval[1], intervals[i][1]);
+
+            }
+        }
+
+        result.push_back(newInterval);
+        return result;
+    }
 
 	void runTest()
 	{
