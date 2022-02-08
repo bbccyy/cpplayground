@@ -33,6 +33,6 @@ int main()
 
     auto sln = new Problem57();
     sln->runTest();
-	system("pause");
+	//system("pause");
     return 0;
 }

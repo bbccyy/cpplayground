@@ -20,6 +20,50 @@ Output: [[1,5],[6,9]]
 class Problem57
 {
 public:
+    vector<vector<int>> insert2(vector<vector<int>>& intervals, vector<int>& newInterval)
+    {
+        vector<vector<int>> output = vector<vector<int>>(intervals.size() + 1);
+        int s = newInterval[0], e = newInterval[1], idx = 0, tarIdx = 0;
+        bool flag = true;
+
+        for (size_t i = 0; i < intervals.size(); ++i)
+        {
+            if (intervals[i][1] < s)
+            {
+                output[idx++] = intervals[i];
+            }
+            else if ( intervals[i][0] > e )
+            {
+                if (flag)
+                {
+                    flag = false;
+                    tarIdx = idx++;
+                }
+                output[idx++] = intervals[i];
+            }
+            else
+            {
+                s = min(intervals[i][0], s);
+                e = max(intervals[i][1], e);
+                if (flag)
+                {
+                    flag = false;
+                    tarIdx = idx++;
+                }
+            }
+        }
+        if (flag)
+        {
+            output[idx++] = newInterval;
+        }
+        else
+        {
+            output[tarIdx] = vector<int>{ s, e };
+        }
+        output.resize(idx);
+        return output;
+    }
+
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval)
     {
         vector<vector<int>> result;
@@ -52,9 +96,21 @@ public:
 
 	void runTest()
 	{
-        vector<vector<int>> input = { {1,2} };
-        vector<int> input2 = { 4,5 };
+        //vector<vector<int>> input = { {1,2},{3,5},{6,7},{8,10},{12,16} };
+        vector<vector<int>> input = { };
+        vector<int> input2 = { 4, 8 };
 
+        auto ret = insert2(input, input2);
 
+        cout << "ret = " << endl;
+        for (int i = 0; i < ret.size(); ++i)
+        {
+            cout << "[";
+            for (int j = 0; j < ret[i].size(); ++j)
+            {
+                cout << ret[i][j] << " ";
+            }
+            cout << "]" << endl;
+        }
 	}
 };
