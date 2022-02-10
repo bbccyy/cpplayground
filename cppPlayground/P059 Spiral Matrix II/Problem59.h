@@ -15,7 +15,27 @@ class Problem59
 {
 public:
     vector<vector<int>> generateMatrix(int n) {
-
+        vector<vector<int>> output = vector<vector<int>>(n, vector<int>(n));
+        int s = 0, e = n - 1, r = 0, ct = 1;
+        while (s <= e)
+        {
+            for (int i = s; i <= e; ++i)
+            {
+                output[r][i] = ct++;
+            }
+            for (int j = r + 1; j <= n - r - 1; ++j)
+            {
+                output[j][e] = ct++;
+            }
+            for (int i = e - 1; i >= s; --i)
+            {
+                output[n - r - 1][i] = ct++;
+            }
+            for (int j = n - r - 1; j > r; --j)
+            {
+                output[j][s] = ct++;
+            }
+        }
     }
 
     void runTest()
