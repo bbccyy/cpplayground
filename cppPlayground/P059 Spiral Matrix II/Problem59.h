@@ -35,7 +35,11 @@ public:
             {
                 output[j][s] = ct++;
             }
+            s++;
+            e--;
+            r++;
         }
+        return output;
     }
 
     void runTest()
