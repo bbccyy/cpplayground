@@ -44,6 +44,19 @@ public:
 
     void runTest()
     {
+        int input = 3;
+        auto ret = generateMatrix(input);
 
+        cout << "ret = ";
+
+        for (auto& sub : ret)
+        {
+            cout << "[";
+            for (auto elem : sub)
+            {
+                cout << elem << " ";
+            }
+            cout << "]" << endl;
+        }
     }
 };
