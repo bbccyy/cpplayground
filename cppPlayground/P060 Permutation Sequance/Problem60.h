@@ -40,16 +40,21 @@ public:
         {
             lut[i] = lut[i - 1] * (i + 1);
         }
-        for (int i = 0; i < n; ++i)
+        for (int i = n - 1; i >= 0; --i)  //start from the heightest position
         {
-            int ct = 1;
-
+            int curMin = nextMin(tb, 0);
+            while (i > 0 && k > lut[i - 1])
+            {
+                k -= lut[i - 1];
+                curMin = nextMin(tb, curMin);
+            }
+            output[i] = curMin;
         }
     }
 
-    int nextMin(vector<bool>& tb)
+    int nextMin(vector<bool>& tb, int curMin)
     {
-        for (int i = 0; i < tb.size(); ++i)
+        for (int i = curMin; i < tb.size(); ++i)
         {
             if (tb[i]) return i + 1;
         }
