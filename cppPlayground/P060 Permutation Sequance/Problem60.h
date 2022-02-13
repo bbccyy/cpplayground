@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -32,7 +33,32 @@ class Problem60
 {
 public:
     string getPermutation(int n, int k) {
+        vector<bool> tb = vector<bool>(n, true);
+        vector<int> output = vector<int>(n, 0);
+        vector<int> lut = vector<int>(n, 1);
+        for (int i = 1; i < n; ++i)
+        {
+            lut[i] = lut[i - 1] * (i + 1);
+        }
+        for (int i = 0; i < n; ++i)
+        {
+            int ct = 1;
 
+        }
+    }
+
+    int nextMin(vector<bool>& tb)
+    {
+        for (int i = 0; i < tb.size(); ++i)
+        {
+            if (tb[i]) return i + 1;
+        }
+        return 0;
+    }
+
+    void mark(vector<bool>& tb, int idx)
+    {
+        tb[idx - 1] = false;
     }
 
     void runTest()
