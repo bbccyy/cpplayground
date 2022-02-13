@@ -49,6 +49,7 @@ public:
                 curMin = nextMin(tb, curMin);
             }
             output[i] = curMin;
+            mark(tb, curMin);
         }
     }
 
