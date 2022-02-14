@@ -51,6 +51,10 @@ public:
             output[i] = curMin;
             mark(tb, curMin);
         }
+        string str = "";
+        for (int i = 0; i < n; ++i)
+            str.append(char('\0' + output[i]) + "");
+        return str;
     }
 
     int nextMin(vector<bool>& tb, int curMin)
@@ -69,6 +73,10 @@ public:
 
     void runTest()
     {
+        int n = 3;
+        int k = 2;
+        string ret = getPermutation(n, k);
 
+        cout << "ret = " << ret << endl;
     }
 };
