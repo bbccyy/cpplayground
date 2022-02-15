@@ -51,10 +51,11 @@ public:
             output[i] = curMin;
             mark(tb, curMin);
         }
-        string str = "";
-        for (int i = 0; i < n; ++i)
-            str.append(char('\0' + output[i]) + "");
-        return str;
+        vector<char> ret;
+        for (int i = n - 1; i >= 0; --i)
+            ret.emplace_back('0' + output[i]);
+        ret.emplace_back('\0');
+        return string(ret.data());
     }
 
     int nextMin(vector<bool>& tb, int curMin)
