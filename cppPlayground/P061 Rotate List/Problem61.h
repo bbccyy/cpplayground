@@ -24,7 +24,26 @@ class Problem61
 {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
-
+        int num = 0;
+        ListNode *p = head, *e = nullptr;
+        while (p != nullptr)
+        {
+            ++num;
+            e = p;
+            p = p->next;
+        }
+        if (num <= 1) return head;
+        k = k % num;
+        if (k == 0) return head;
+        p = head;
+        for (int i = 0; i < num - k - 1; ++i)
+        {
+            p = p->next;
+        }
+        e->next = head;
+        if (p) head = p->next;
+        if (p) p->next = nullptr;
+        return head;
     }
 
     void runTest()
