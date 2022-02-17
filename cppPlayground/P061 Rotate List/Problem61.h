@@ -32,7 +32,7 @@ public:
             e = p;
             p = p->next;
         }
-        if (num <= 1) return head;
+        if (num <= 1) return head; 
         k = k % num;
         if (k == 0) return head;
         p = head;
