@@ -7,6 +7,7 @@
 #include "P060 Permutation Sequance/Problem60.h"
 #include "P061 Rotate List/Problem61.h"
 #include "P063 Unique Paths II/Problem63.h"
+#include "p064 Minimum Path Sum/Problem64.h"
 
 
 using namespace std;
@@ -16,7 +17,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem63();
+    auto sln = new Problem64();
     sln->runTest();
 	//system("pause");
     return 0;
