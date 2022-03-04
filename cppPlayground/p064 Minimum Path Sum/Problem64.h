@@ -42,7 +42,7 @@ public:
         {
             for (int c = 1; c < c_size; ++c)
             {
-                best = tb[r - 1][c] < tb[r][c - 1] ? tb[r - 1][c] : tb[r][c - 1];
+                best = tb[r - 1][c] < tb[r][c - 1] ? tb[r - 1][c] : tb[r][c - 1]; 
                 tb[r][c] = grid[r][c] + best;
             }
         }
@@ -53,5 +53,10 @@ public:
     void runTest()
     {
         //todo 
+        vector<vector<int>> input = { {1,2,3},{2,3,4} };
+
+        auto ret = minPathSum(input);
+
+        cout << "ret = " << ret << endl;
     }
 };
