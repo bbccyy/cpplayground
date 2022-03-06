@@ -33,7 +33,72 @@ Given a string s, return true if s is a valid number.
 class Problem65 {
 public:
     bool isNumber(string s) {
+        int st = 0, ed = s.length(), mid = -1;
+        while (st < ed && (s[st] == ' ' || s[st] == '/t')) ++st;
+        if (st == ed) return false;
+        while (ed > 0 && (s[ed - 1] == ' ' || s[ed - 1] == '/t')) --ed;
+        if (ed == 0) return false;
 
+        for (int i = st; i < ed; ++i)
+        {
+            if ((s[i] == 'e' || s[i] == 'E') && mid == -1)
+            {
+                mid = i;
+                break;
+            }
+        }
+
+        if (mid == -1)
+        {
+            return isDecimal(s, st, ed);
+        }
+        else
+        {
+            return isDecimal(s, st, mid) && isInteger(s, mid + 1, ed);
+        }
+    }
+
+    bool isDecimal(string s, int st, int ed)
+    {
+        if (st >= ed) return false;
+        if (s.length() < ed) return false;
+        if (s[st] != '+' || s[st] != '-' || (s[st] < '0' || s[st] > '9') || s[st] != '.') return false;
+        bool usePoint = s[st] == '.';
+        bool hasNum = s[st] >= '0' || s[st] <= '9';
+        for (int i = st + 1; i < ed; ++i)
+        {
+            if (s[i] < '0' || s[i] > '9')
+            {
+                if (usePoint) return false;
+                if (s[i] != '.') return false;
+                else usePoint = true;
+            }
+            else
+            {
+                hasNum = true;
+            }
+        }
+        return hasNum && s[ed - 1] != '.';
+    }
+
+    bool isInteger(string s, int st, int ed)
+    {
+        if (st >= ed) return false;
+        if (s.length() < ed) return false;
+        if (s[st] != '+' || s[st] != '-' || (s[st] < '0' || s[st] > '9')) return false;
+        bool hasNum = s[st] >= '0' || s[st] <= '9';
+        for (int i = st + 1; i < ed; ++i)
+        {
+            if (s[i] < '0' || s[i] > '9')
+            {
+                return false;
+            }
+            else
+            {
+                hasNum = true;
+            }
+        }
+        return hasNum;
     }
 
     void runTest()
