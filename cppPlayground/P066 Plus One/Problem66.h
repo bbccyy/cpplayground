@@ -23,11 +23,39 @@ class Problem66
 {
 public:
     vector<int> plusOne(vector<int>& digits) {
-
+        int d_size = digits.size();
+        if (d_size <= 0)
+        {
+            digits.emplace_back(1);
+            return digits;
+        }
+        digits[d_size - 1] = digits[d_size - 1] + 1;
+        int carry = digits[d_size - 1] / 10;
+        digits[d_size - 1] = digits[d_size - 1] % 10;
+        for (int i = d_size - 2; i >= 0 && carry > 0; --i)
+        {
+            digits[i] = digits[i] + carry;
+            carry = digits[i] / 10;
+            digits[i] = digits[i] % 10;
+        }
+        if (carry > 0)
+        {
+            digits.insert(digits.begin(), 1);
+        }
+        return digits;
     }
 
     void runTest()
     {
+        vector<int> input = vector<int>{ 9,9,9,9 };
 
+        auto ret = plusOne(input);
+
+        cout << "ret = ";
+        for (auto it = ret.begin(); it != ret.end(); ++it)
+        {
+            cout << *it << " ";
+        }
+        cout << endl;
     }
 };
