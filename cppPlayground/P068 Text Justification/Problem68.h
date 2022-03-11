@@ -99,11 +99,16 @@ public:
             cost += words[ed].size();
             if (cost + (ed - start) > width)
             {
-                --ed;
                 cost -= words[ed].size();
+                --ed;
                 break;
             }
             ++ed;
+            if (ed == words.size())
+            {
+                --ed;
+                break;
+            }
         }
         cost = width - cost;    //space cost
         int gaps = ed - start;  //maybe ZERO
@@ -123,6 +128,15 @@ public:
 
     void runTest()
     {
+        vector<string> input1 = { "This", "is", "an", "example", "of", "text", "justification." };
+        int input2 = 16;
 
+        auto ret = fullJustify(input1, input2);
+
+        cout << "ret: " << endl;
+        for (auto str : ret)
+        {
+            cout << str << endl;
+        }
     }
 };
