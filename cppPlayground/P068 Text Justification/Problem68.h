@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <strstream>
 
 using namespace std;
 
@@ -36,6 +37,64 @@ class Problem68
 public:
     vector<string> fullJustify(vector<string>& words, int maxWidth) {
 
+        int w_size = words.size(), idx = 0, gap = 0;
+        vector<int> out = vector<int>(3, 0);
+        vector<string> ret;
+        strstream ss;
+        while (idx < w_size)
+        {
+            packOneLine(words, idx, maxWidth, out);
+            gap = out[2] - idx;
+            if (out[2] + 1 == w_size)
+            {
+                //end condition is special
+                //todo
+            }
+            else
+            {
+                //common condition
+                if (gap == 0)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+
+    }
+
+    void packOneLine(vector<string>& words, int start, int width, vector<int>& out)
+    {
+        int ed = start, cost = 0;
+        while (ed < words.size())
+        {
+            cost += words[ed].size();
+            if (cost + (ed - start) > width)
+            {
+                --ed;
+                cost -= words[ed].size();
+                break;
+            }
+            ++ed;
+        }
+        cost = width - cost;    //space cost
+        int gaps = ed - start;  //maybe ZERO
+        if (gaps == 0)
+        {
+            out[0] = cost;
+            out[1] = 0;
+            out[2] = ed;
+            return;
+        }
+
+        out[0] = cost / gaps;
+        out[1] = cost % gaps;
+        out[2] = ed;
+        return;
     }
 
     void runTest()
