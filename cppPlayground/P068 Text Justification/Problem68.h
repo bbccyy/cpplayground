@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <strstream>
+#include <sstream>
 
 using namespace std;
 
@@ -40,31 +40,55 @@ public:
         int w_size = words.size(), idx = 0, gap = 0;
         vector<int> out = vector<int>(3, 0);
         vector<string> ret;
-        strstream ss;
+        stringstream ss;
         while (idx < w_size)
         {
+            ss.clear();
+            ss.str("");
             packOneLine(words, idx, maxWidth, out);
             gap = out[2] - idx;
             if (out[2] + 1 == w_size)
             {
                 //end condition is special
-                //todo
+                while (idx < out[2])
+                {
+                    ss << words[idx] << " ";
+                    ++idx;
+                }
+                ss << words[idx];
+                ret.emplace_back(ss.str());
+                break;
             }
             else
             {
                 //common condition
                 if (gap == 0)
                 {
-
+                    ss << words[idx];
+                    for (int i = 0; i < out[0]; ++i)
+                        ss << " ";
                 }
                 else
                 {
-
+                    while (idx < out[2])
+                    {
+                        ss << words[idx];
+                        ++idx;
+                        for (int i = 0; i < out[0]; ++i)
+                            ss << " ";
+                        if (out[1] > 0)
+                        {
+                            ss << " ";
+                            --out[1];
+                        }
+                    }
+                    ss << words[idx];
                 }
             }
+            ++idx;
+            ret.emplace_back(ss.str());
         }
-
-
+        return ret;
     }
 
     void packOneLine(vector<string>& words, int start, int width, vector<int>& out)
