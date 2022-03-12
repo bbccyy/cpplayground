@@ -120,10 +120,10 @@ public:
             return;
         }
 
-        out[0] = cost / gaps;
-        out[1] = cost % gaps;
-        out[2] = ed;
-        return;
+        out[0] = cost / gaps; 
+        out[1] = cost % gaps; 
+        out[2] = ed; 
+        return; 
     }
 
     void runTest()
