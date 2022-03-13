@@ -131,7 +131,7 @@ public:
         vector<string> input1 = { "This", "is", "an", "example", "of", "text", "justification." };
         int input2 = 16;
 
-        auto ret = fullJustify(input1, input2);
+        auto ret = fullJustify(input1, input2); 
 
         cout << "ret: " << endl;
         for (auto str : ret)
