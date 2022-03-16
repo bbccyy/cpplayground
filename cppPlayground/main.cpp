@@ -9,7 +9,7 @@
 #include "P65 Valid Number/Problem65.h"
 #include "P067 Add Binary/Problem67.h"
 #include "P068 Text Justification/Problem68.h"
-#include "P069 SqrtX/Problem69.h"
+#include "P070 Climbing Stairs/Problem70.h"
 
 
 using namespace std;
@@ -19,7 +19,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem69();
+    auto sln = new Problem70();
     sln->runTest();
 	//system("pause");
     return 0;
