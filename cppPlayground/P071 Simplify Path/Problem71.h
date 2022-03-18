@@ -26,6 +26,14 @@ eg.
 Input: path = "/home/"
 Output: "/home"
 Explanation: Note that there is no trailing slash after the last directory name.
+
+Input: path = "/home//foo/"
+Output: "/home/foo"
+Explanation: In the canonical path, multiple consecutive slashes are replaced by a single one.
+
+1 <= path.length <= 3000
+path consists of English letters, digits, period '.', slash '/' or '_'.
+path is a valid absolute Unix path.
 */
 class Problem71
 {
@@ -39,3 +47,33 @@ public:
 
     }
 };
+
+
+/*
+EXPLANATION
+
+Create a Stack of String with following condition.
+Iterate the loop till you doesn't reaches the end of string.
+If you encounter a "/" then ignore it.
+Create a temp String & Iterate the while loop till you doesn't find "/" and append it to temp.
+Now check if temp == "." , then ignore it.
+If temp == ".." then pop the element from the stack if it exists.
+If no of the above 2 matches push temp to stack as you find a valid path.
+Check out temp string on basis of above conditions till you doesn't find "/".
+Now add all stack elements to result as res = "/" + st.top() + res
+If res.size() is 0 then return "/" if no directory or file is present.
+At last return res.
+Input: path = "/../"
+Output: "/"
+Input: path = "/home//foo/"
+Output: "/home/foo"
+ALGORITHM
+
+By looking at examples we can see that the above simplification process just behaves like a stack.
+Whenever we encounter any file¡¯s name, we simply push it into the stack.
+when we come across ¡± . ¡± we do nothing
+When we find ¡°..¡± in our path, we simply pop the topmost element as we have to jump back to parent¡¯s directory.
+When we see multiple ¡°////¡± we just ignore them as they are equivalent to one single ¡°/¡±.
+After iterating through the whole string the elements remaining in the stack is our simplified absolute path.
+
+*/
