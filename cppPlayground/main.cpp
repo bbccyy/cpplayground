@@ -11,7 +11,7 @@
 #include "P068 Text Justification/Problem68.h"
 #include "P071 Simplify Path/Problem71.h"
 #include "P072 Edit Distance/Problem72.h"
-
+#include "P073 Set Matrix Zeroes/Problem73.h"
 
 using namespace std;
 
