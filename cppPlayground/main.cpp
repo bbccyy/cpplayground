@@ -10,6 +10,7 @@
 #include "P067 Add Binary/Problem67.h"
 #include "P068 Text Justification/Problem68.h"
 #include "P071 Simplify Path/Problem71.h"
+#include "P072 Edit Distance/Problem72.h"
 
 
 using namespace std;
@@ -19,7 +20,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem71();
+    auto sln = new Problem72();
     sln->runTest();
 	//system("pause");
     return 0;
