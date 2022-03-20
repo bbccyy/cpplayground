@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -39,12 +40,46 @@ class Problem71
 {
 public:
     string simplifyPath(string path) {
+        vector<string> splited;
+        int s = 0, p_size = path.length();
+        for (int i = 0; i < p_size; )
+        {
+            while (i < p_size && path.at(i) == '/') ++i;  //find first name
+            s = i;
 
+            while (i < p_size && path.at(i) != '/') ++i;  //find name size
+
+            if (i == s) break;  //deal with corner case "no name"
+
+            string sub = path.substr(s, i - s);
+            if (sub == "..")
+            {
+                if (!splited.empty()) splited.pop_back();
+            }
+            else if (sub != ".")
+            {
+                splited.emplace_back(sub);
+            }
+        }
+        stringstream ss;
+        ss << '/';
+        for (int i = 0; i < splited.size();)
+        {
+            ss << splited[i];
+            if (++i == splited.size()) break;
+            else ss << '/';
+        }
+
+        return ss.str();
     }
 
     void runTest()
     {
+        string input = "///home/.///../abc/_wz///";
 
+        auto ret = simplifyPath(input);
+
+        cout << "ret = " << ret << endl;
     }
 };
 
