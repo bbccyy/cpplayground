@@ -11,7 +11,7 @@
 #include "P068 Text Justification/Problem68.h"
 #include "P071 Simplify Path/Problem71.h"
 #include "P072 Edit Distance/Problem72.h"
-#include "P073 Set Matrix Zeroes/Problem73.h"
+#include "P074 Search a 2D Matrix/Problem74.h"
 
 using namespace std;
 
@@ -20,7 +20,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem72();
+    auto sln = new Problem74();
     sln->runTest();
 	//system("pause");
     return 0;
