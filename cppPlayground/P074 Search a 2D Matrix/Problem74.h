@@ -17,6 +17,8 @@ public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         //two binary search!
         int r_sz = matrix.size();
+        if (r_sz == 0) return false;  // pointless condition 
+
         int c_sz = matrix[0].size();
 
         if (matrix[0][0] > target || matrix[r_sz - 1][c_sz - 1] < target)
