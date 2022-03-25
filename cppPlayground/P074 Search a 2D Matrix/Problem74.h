@@ -25,7 +25,7 @@ public:
             return false;
 
         int s = 0, e = r_sz - 1, m = 0, tar_row = -1;
-        while (s < e)
+        while (s <= e)
         {
             m = s + (e - s) / 2;
 
@@ -44,9 +44,9 @@ public:
                 break;
             }
         }
-        if (tar_row < 0) tar_row = s;
+        if (tar_row < 0) tar_row = s;  //this sould not happen! 
         s = 0, e = c_sz - 1;
-        while (s < e)
+        while (s <= e)
         {
             m = s + (e - s) / 2;
             if (matrix[tar_row][m] == target) return true;
@@ -59,8 +59,8 @@ public:
                 e = m - 1;
             }
         }
-        if (e < 0) e = 0;
-        return  matrix[tar_row][e] == target;
+
+        return  false;
     }
 
     bool searchMatrix2(vector<vector<int>>& m, int t) {
