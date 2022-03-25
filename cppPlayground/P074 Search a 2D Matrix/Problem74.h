@@ -24,29 +24,33 @@ public:
         if (matrix[0][0] > target || matrix[r_sz - 1][c_sz - 1] < target)
             return false;
 
-        int s = 0, e = r_sz - 1, m = 0;
+        int s = 0, e = r_sz - 1, m = 0, tar_row = -1;
         while (s < e)
         {
             m = s + (e - s) / 2;
-            if (matrix[m][0] == target) return true;
-            if (matrix[m][0] < target)
+
+            if (matrix[m].front() > target)
+            {
+                e = m - 1;
+            }
+            else if (matrix[m].back() < target)
             {
                 s = m + 1;
             }
             else
             {
-                e = m - 1;
+                //find the target row!
+                tar_row = m;
+                break;
             }
         }
-
-        int r = e;
-        if (r < 0) r = 0;
+        if (tar_row < 0) tar_row = s;
         s = 0, e = c_sz - 1;
         while (s < e)
         {
             m = s + (e - s) / 2;
-            if (matrix[r][m] == target) return true;
-            if (matrix[r][m] < target)
+            if (matrix[tar_row][m] == target) return true;
+            if (matrix[tar_row][m] < target)
             {
                 s = m + 1;
             }
@@ -56,9 +60,7 @@ public:
             }
         }
         if (e < 0) e = 0;
-
-        
-        return  matrix[r][e] == target;
+        return  matrix[tar_row][e] == target;
     }
 
     bool searchMatrix2(vector<vector<int>>& m, int t) {
