@@ -32,8 +32,23 @@ public:
 
     }
 
+    void swap(vector<int>& nums, int a, int b)
+    {
+        int tmp = nums[a];
+        nums[a] = nums[b];
+        nums[b] = tmp;
+    }
+
     void runTest()
     {
+        vector<int> input = { 2,1,3,1,2,1,1 };
+        swap(input, 2, 4);
 
+        cout << "ret =";
+        for (auto v : input)
+        {
+            cout << v << " ";
+        }
+        cout << endl;
     }
 };
