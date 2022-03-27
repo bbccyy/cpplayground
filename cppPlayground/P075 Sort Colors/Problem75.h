@@ -29,7 +29,18 @@ class Problem75
 {
 public:
     void sortColors(vector<int>& nums) {
+        int i = patition(nums, 0, nums.size() - 1, 0);
+        patition(nums, i, nums.size() - 1, 1);
+    }
 
+    int patition(vector<int>& nums, int s, int e, int tar)
+    {
+        while (s <= e)
+        {
+            if (nums[s] <= tar) ++s;
+            else swap(nums, s, e--);
+        }
+        return s;
     }
 
     void swap(vector<int>& nums, int a, int b)
@@ -41,10 +52,12 @@ public:
 
     void runTest()
     {
-        vector<int> input = { 2,1,3,1,2,1,1 };
-        swap(input, 2, 4);
+        vector<int> input = { 1,1,1,1,1,1,1 };
+        //int t = patition(input, 0, input.size() - 1, 2);
+        sortColors(input);
 
-        cout << "ret =";
+        //cout << "ret = " << t << " res = ";
+        cout << "ret = ";
         for (auto v : input)
         {
             cout << v << " ";
