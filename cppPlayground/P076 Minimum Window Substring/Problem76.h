@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <unordered_map>
 
 using namespace std;
 
@@ -30,6 +31,22 @@ public:
         //sliding window problem
         int s_sz = s.length();
         int t_sz = t.length();
+        int best_s = 0, best_l = 0;
+        int p = 0, q = 0;
+        unordered_map<char, int> collections;
+        unordered_map<char, int> needhave;
+        for (auto v : t)
+        {
+            if (needhave.find(v) == needhave.end())
+            {
+                needhave[v] = 1;
+            }
+            else
+            {
+                needhave[v] = needhave[v] + 1;
+            }
+        }
+
 
     }
 
