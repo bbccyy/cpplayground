@@ -31,7 +31,7 @@ public:
         //sliding window problem
         int s_sz = s.length();
         int t_sz = t.length();
-        int best_s = 0, best_l = 0;
+        int best_s = 0, best_l = INT_MAX, v_sz = 0;
         int p = 0, q = 0;
         unordered_map<char, int> collections;
         unordered_map<char, int> needhave;
@@ -46,8 +46,51 @@ public:
                 needhave[v] = needhave[v] + 1;
             }
         }
-
-
+        char cur = ' ', cur2 = ' ';
+        int curNeedNum = 0;
+        while (q < s_sz)
+        {
+            cur = s.at(q);
+            if (needhave.find(cur) != needhave.end())
+            {
+                //needed
+                curNeedNum = needhave[cur];
+                if (collections.find(cur) == collections.end())
+                    collections[cur] = 1;
+                else collections[cur] = collections[cur] + 1;
+                if (collections[cur] <= curNeedNum)
+                {
+                    ++v_sz;
+                    while (v_sz == t_sz && p <= q)
+                    {
+                        //get a match! cmp & shrink
+                        if (best_l > q - p + 1)
+                        {
+                            best_l = q - p + 1;  //update results
+                            best_s = p;
+                        }
+                        cur2 = s.at(p);
+                        //compare char at p
+                        if (needhave.find(cur2) != needhave.end()) 
+                        {
+                            if (collections[cur2] == needhave[cur2])
+                            {
+                                //if we pop out this p, also need to shrink v_sz
+                                --v_sz;
+                            }
+                            collections[cur2] = collections[cur2] - 1;  //pop out 
+                        }
+                        ++p;
+                    }
+                }
+            }
+            ++q;
+        }
+        if (best_l == INT_MAX)
+        {
+            return "";
+        }
+        return s.substr(best_s, best_l);
     }
 
     void runTest()
