@@ -34,11 +34,9 @@ class Problem77
 {
 public:
     vector<vector<int>> v;
-    vector<char> tb;
 public:
     vector<vector<int>> combine(int n, int k) {
         v.clear();
-        //tb = vector<char>(n + 1, 1);
         vector<int> tmp;
         helper(tmp, n, k);
         return v;
@@ -58,7 +56,6 @@ public:
         cur.pop_back();
 
         helper(cur, n - 1, k);
-
     }
 
     void runTest()
