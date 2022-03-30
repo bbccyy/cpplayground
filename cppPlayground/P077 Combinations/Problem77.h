@@ -38,7 +38,7 @@ public:
 public:
     vector<vector<int>> combine(int n, int k) {
         v.clear();
-        tb = vector<char>(n + 1, 1);
+        //tb = vector<char>(n + 1, 1);
         vector<int> tmp;
         helper(tmp, n, k);
         return v;
@@ -51,22 +51,19 @@ public:
             v.emplace_back(cur);
             return;
         }
-        for (int i = 1; i <= n; ++i)
-        {
-            if (tb[i])
-            {
-                cur.emplace_back(i);
-                tb[i] = 0;
-                helper(cur, n, k - 1);
-                tb[i] = 1;
-                cur.pop_back();
-            }
-        }
+        if (n < k) return;
+
+        cur.emplace_back(n);
+        helper(cur, n - 1, k - 1);
+        cur.pop_back();
+
+        helper(cur, n - 1, k);
+
     }
 
     void runTest()
     {
-        auto&& ret = combine(4, 2);
+        auto&& ret = combine(4, 3);
 
         cout << "ret = [" << endl;
         for (auto v : ret)
