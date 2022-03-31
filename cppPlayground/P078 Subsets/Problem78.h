@@ -27,7 +27,35 @@ class Problem78
 {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
+        int sz = nums.size();
+        vector<vector<int>> out;
+        for (int k = 0; k <= sz; ++k)
+        {
+            combination(nums, k, out);
+        }
+        return out;
+    }
 
+    void combination(vector<int>& set, int k, vector<vector<int>>& out)
+    {
+        vector<int> v;
+        helper(set, set.size(), k, out, v);
+    }
+
+    void helper(vector<int>& set, int n, int k, vector<vector<int>>& out, vector<int>& cur)
+    {
+        if (k == 0)
+        {
+            out.emplace_back(cur);
+            return;
+        }
+        if (n < k) return;
+
+        cur.emplace_back(set[n - 1]);
+        helper(set, n - 1, k - 1, out, cur);
+
+        cur.pop_back();
+        helper(set, n - 1, k, out, cur);
     }
 
     void runTest()
