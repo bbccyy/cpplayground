@@ -8,6 +8,7 @@
 #include "P076 Minimum Window Substring/Problem76.h"
 #include "P077 Combinations/Problem77.h"
 #include "P078 Subsets/Problem78.h"
+#include "P079 Word Search/Problem79.h"
 
 using namespace std;
 
@@ -16,7 +17,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem78();
+    auto sln = new Problem79();
     sln->runTest();
 	//system("pause");
     return 0;
