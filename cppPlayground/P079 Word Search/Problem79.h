@@ -32,7 +32,7 @@ Could you use search pruning to make your solution faster with a larger board?
 class Problem79 {
 public:
     bool exist(vector<vector<char>>& board, string word) {
-
+        //DFS + branch pruning 
     }
 
     void runTest()
