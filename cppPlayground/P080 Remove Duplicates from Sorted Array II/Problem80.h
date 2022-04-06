@@ -47,11 +47,55 @@ class Problem80
 {
 public:
     int removeDuplicates(vector<int>& nums) {
+        int sz = nums.size();
+        if (sz < 3) return sz;  //corner case
 
+        int p = 1, q = 1, cur = nums[0], ct = 1;
+        while (q < sz)
+        {
+            if (nums[q] != cur)
+            {
+                swap(nums, p, q);
+                ++q;
+                ++p;
+                ct = 1;
+            }
+            else
+            {
+                ++ct;
+                if (ct <= 2)
+                {
+                    ++q;
+                    ++p;
+                }
+                else
+                {
+                    ++q;
+                }
+            }
+        }
+        return p;
+    }
+
+    void swap(vector<int>& nums, int s, int e)
+    {
+        if (s == e) return;
+        int tp = nums[s];
+        nums[s] = nums[e];
+        nums[e] = tp;
     }
 
     void runTest()
     {
+        vector<int> input = { 1,1,1,2,2,3 };
 
+        auto ret = removeDuplicates(input);
+
+        cout << "ret = " << ret << endl;
+        for (int i = 0; i < ret; ++i)
+        {
+            cout << input[i] << " ";
+        }
+        cout << endl;
     }
 };
