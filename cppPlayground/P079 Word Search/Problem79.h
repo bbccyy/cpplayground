@@ -53,9 +53,9 @@ public:
 
     bool DFS(vector<vector<char>>& board, vector<vector<bool>>& tb, string& word, int p, int r, int c)
     {
-        if (word.length() <= p) return true;
         if (tb[r][c]) return false;
         if (board[r][c] != word.at(p)) return false;
+        if (p + 1 == word.length()) return true;
 
         tb[r][c] = true;
         if (r - 1 >= 0 && DFS(board, tb, word, p + 1, r - 1, c))
@@ -80,6 +80,10 @@ public:
 
     void runTest()
     {
-        //todo 
+        vector<vector<char>> input = { {'a'}};
+
+        auto ret = exist(input, "a");
+
+        cout << "ret = " << ret << endl;
     }
 };
