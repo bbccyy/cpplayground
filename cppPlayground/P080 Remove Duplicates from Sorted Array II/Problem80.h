@@ -55,6 +55,7 @@ public:
         {
             if (nums[q] != cur)
             {
+                cur = nums[q];
                 swap(nums, p, q);
                 ++q;
                 ++p;
@@ -65,6 +66,7 @@ public:
                 ++ct;
                 if (ct <= 2)
                 {
+                    swap(nums, p, q);
                     ++q;
                     ++p;
                 }
@@ -87,7 +89,7 @@ public:
 
     void runTest()
     {
-        vector<int> input = { 1,1,1,2,2,3 };
+        vector<int> input = { 0,0,1,1,1,1,2,3,3 };
 
         auto ret = removeDuplicates(input);
 
