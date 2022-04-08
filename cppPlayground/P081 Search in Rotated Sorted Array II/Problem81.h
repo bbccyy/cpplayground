@@ -43,6 +43,42 @@ public:
 
     }
 
+    //return the index(pivot) of an element which value is strikly less then the first element of array
+    int findPivot(vector<int>& nums)
+    {
+        int sz = nums.size();
+        int s = 0, e = sz - 1, m = 0;
+        while (s < e)
+        {
+            m = s + (e - s) / 2;  //m tends to s 
+            if (nums[s] < nums[m])
+            {
+                s = m;
+            }
+            else if (nums[s] > nums[m])
+            {
+                e = m;
+            }
+            else if (nums[m] > nums[e])
+            {
+                s = m;
+            }
+            else if (nums[m] < nums[e])
+            {
+                e = m;
+            }
+            else
+            {
+                //both s and e are possible to be replaced by m
+                //try both side is nessary
+                break;
+            }
+        }
+        if (s == e)
+            return s;
+
+    }
+
     void runTest()
     {
 
