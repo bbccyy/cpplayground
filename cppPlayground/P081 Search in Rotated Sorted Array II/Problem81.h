@@ -70,8 +70,7 @@ public:
             else
             {
                 //both s and e are possible to be replaced by m
-                //try both side is nessary
-                break;
+                //shrink s and e 
             }
         }
         if (s == e)
