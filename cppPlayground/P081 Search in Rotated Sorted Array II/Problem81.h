@@ -70,7 +70,9 @@ public:
             else
             {
                 //both s and e are possible to be replaced by m
-                //shrink s and e 
+                //shrink s and e
+                ++s;
+                --e;
             }
         }
         if (s == e)
