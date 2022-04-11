@@ -75,9 +75,7 @@ public:
                 --e;
             }
         }
-        if (s == e)
-            return s;
-
+        return s;
     }
 
     void runTest()
