@@ -40,7 +40,28 @@ class Problem81
 {
 public:
     bool search(vector<int>& nums, int target) {
+        int p = findPivot(nums);
+        return binarysearch(nums, 0, p, target) || binarysearch(nums, p + 1, nums.size() - 1, target);
+    }
 
+    bool binarysearch(vector<int>& nums, int s, int e, int tar)
+    {
+        int m = 0;
+        while (s <= e)
+        {
+            m = s + (e - s) / 2;
+            if (nums[m] == tar)
+                return true;
+            if (nums[m] < tar)
+            {
+                s = m + 1;
+            }
+            else
+            {
+                e = m - 1;
+            }
+        }
+        return false;
     }
 
     //return the index(pivot) of an element which value is strikly less then the first element of array
@@ -80,6 +101,7 @@ public:
 
     void runTest()
     {
+        //TODO
 
     }
 };
