@@ -143,11 +143,14 @@ public:
 
     void runTest()
     {
-        vector<int> input = { 2,2,3,4,5,5,0,1,2 };
+        vector<int> input = { 2,2,3,3,5,5,1,1,2,2,2,2,2,2,2,2,2,2,2 };
 
         auto ret = findPivot(input);
+        auto ret2 = binarysearch(input, 0, input.size() - 1, 5);
 
-        cout << "ret = " << ret << endl;
+        auto ret3 = search(input, 4);
+
+        cout << "ret3 = " << ret3 << endl;
 
     }
 };
