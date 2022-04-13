@@ -69,6 +69,7 @@ public:
     {
         int sz = nums.size();
         int s = 0, e = sz - 1, m = 0;
+        if (nums[s] < nums[e]) return 0;
         while (s < e -1)
         {
             m = s + (e - s) / 2;  //m tends to s 
@@ -142,7 +143,7 @@ public:
 
     void runTest()
     {
-        vector<int> input = { 5,5,5,5,5,5,5,2,5,5 };
+        vector<int> input = { 2,2,3,4,5,5,0,1,2 };
 
         auto ret = findPivot(input);
 
