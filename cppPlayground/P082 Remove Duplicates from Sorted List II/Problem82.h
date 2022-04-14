@@ -36,6 +36,41 @@ class Problem82
 {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
+        ListNode* dummyHead = new ListNode(0, head);
+        ListNode *q = dummyHead, *p = head;
+
+        while (p != nullptr)
+        {
+            while (p->next && p->val == p->next->val) p = p->next;
+            if (q->next != p)
+            {
+                // dump p
+                ListNode* tmp = nullptr;
+                ListNode* todel = q->next;
+                p = p->next;
+                q->next = p;
+                while (todel != tmp)
+                {
+                    tmp = todel->next;
+                    delete todel;
+                    todel = tmp;
+                }
+            }
+            else
+            {
+                q = p;
+                p = p->next;
+            }
+        }
+
+        head = dummyHead->next;
+        delete dummyHead;
+
+        return head;
+    }
+
+    void runTest()
+    {
 
     }
 };

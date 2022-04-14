@@ -9,6 +9,7 @@
 #include "P077 Combinations/Problem77.h"
 #include "P078 Subsets/Problem78.h"
 #include "P081 Search in Rotated Sorted Array II/Problem81.h"
+#include "P082 Remove Duplicates from Sorted List II/Problem82.h"
 
 using namespace std;
 
@@ -17,7 +18,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem81();
+    auto sln = new Problem82();
     sln->runTest();
 	//system("pause");
     return 0;
