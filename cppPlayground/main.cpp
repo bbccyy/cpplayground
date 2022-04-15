@@ -10,6 +10,7 @@
 #include "P078 Subsets/Problem78.h"
 #include "P081 Search in Rotated Sorted Array II/Problem81.h"
 #include "P082 Remove Duplicates from Sorted List II/Problem82.h"
+#include "P083 Remove Duplicates from Sorted List/Problem83.h"
 
 using namespace std;
 
