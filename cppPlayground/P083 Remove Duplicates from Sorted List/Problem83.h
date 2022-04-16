@@ -29,11 +29,25 @@ class Problem83
 {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-
+        ListNode* p = head, *q = nullptr, *tmp = nullptr;
+        
+        while (p != nullptr)
+        {
+            q = p->next;
+            while (q && p->val == q->val)
+            {
+                tmp = q;
+                q = q->next;
+                delete tmp;
+            }
+            p->next = q;
+            p = q;
+        }
+        return head;
     }
 
     void runTest()
     {
-
+        //todo 
     }
 };
