@@ -28,6 +28,10 @@ class Problem84
 {
 public:
     int largestRectangleArea(vector<int>& heights) {
+        int sz = heights.size();
+        int maxArea = 0;
+
+
 
     }
 
