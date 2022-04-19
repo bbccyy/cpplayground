@@ -32,7 +32,7 @@ public:
         return a > b ? a : b;
     }
 
-    int largestRectangleArea(vector<int>& heights) {
+    int largestRectangleAreaSlow(vector<int>& heights) {
         int sz = heights.size();
         int curMax = 0;
 
@@ -42,16 +42,21 @@ public:
             ++sz;
         }
 
-        vector<int> tb = vector<int>(105, -1); //0~104
-        int cur = 0;
+        int tb_sz = 0;
+        for (int i = 0; i < sz; ++i)
+            tb_sz = max(tb_sz, heights[i]);
+
+        vector<int> tb = vector<int>(tb_sz + 1, -1); //0~104
+        int cur = 0, tmp = 0;
         for (int i = 0; i < sz; ++i)
         {
             cur = heights[i];
-            if (tb[cur] == -1)
+            tmp = cur;
+            while (tmp > 0 && tb[tmp] == -1)
             {
-                tb[cur] = i;
+                tb[tmp--] = i;
             }
-            for (int j = cur + 1; j <= 104; ++j)
+            for (int j = cur + 1; j <= tb_sz; ++j)
             {
                 if (tb[j] != -1)
                 {
@@ -66,9 +71,9 @@ public:
 
     void runTest()
     {
-        vector<int> input = { 2,4 };
+        vector<int> input = { 2,1,2 };
 
-        auto ret = largestRectangleArea(input);
+        auto ret = largestRectangleAreaSlow(input);
 
         cout << "ret = " << ret;
     }
