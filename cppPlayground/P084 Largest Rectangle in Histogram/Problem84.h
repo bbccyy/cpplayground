@@ -27,16 +27,49 @@ Constraints:
 class Problem84
 {
 public:
+    inline int max(int a, int b)
+    {
+        return a > b ? a : b;
+    }
+
     int largestRectangleArea(vector<int>& heights) {
         int sz = heights.size();
-        int maxArea = 0;
+        int curMax = 0;
 
+        if (heights[sz - 1] != 0)
+        {
+            heights.emplace_back(0);
+            ++sz;
+        }
 
+        vector<int> tb = vector<int>(105, -1); //0~104
+        int cur = 0;
+        for (int i = 0; i < sz; ++i)
+        {
+            cur = heights[i];
+            if (tb[cur] == -1)
+            {
+                tb[cur] = i;
+            }
+            for (int j = cur + 1; j <= 104; ++j)
+            {
+                if (tb[j] != -1)
+                {
+                    curMax = max(curMax, (i - tb[j]) * j);
+                    tb[j] = -1;
+                }
+            }
+        }
 
+        return curMax;
     }
 
     void runTest()
     {
+        vector<int> input = { 2,4 };
 
+        auto ret = largestRectangleArea(input);
+
+        cout << "ret = " << ret;
     }
 };
