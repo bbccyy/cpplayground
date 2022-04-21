@@ -32,6 +32,12 @@ public:
         return a > b ? a : b;
     }
 
+    int largestRectangleArea(vector<int>& heights) {
+        //todo 
+        return 0;
+    }
+
+
     int largestRectangleAreaSlow(vector<int>& heights) {
         int sz = heights.size();
         int curMax = 0;
