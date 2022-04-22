@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <stack>
 
 using namespace std;
 
@@ -33,8 +34,25 @@ public:
     }
 
     int largestRectangleArea(vector<int>& heights) {
-        //todo 
-        return 0;
+        //maintain looping invariants
+
+        int sz = heights.size();
+        if (sz == 0) return 0;
+        if (heights[sz - 1] != 0)
+        {
+            heights.emplace_back(0);
+            ++sz;
+        }
+
+        int cm = heights[0];    //current max 
+        stack<int> stk; 
+        stk.push(0);            //first pivot 
+
+
+
+
+
+        return cm;
     }
 
 
