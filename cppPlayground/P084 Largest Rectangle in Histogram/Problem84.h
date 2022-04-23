@@ -37,7 +37,8 @@ public:
         //maintain looping invariants
 
         int sz = heights.size();
-        if (sz == 0) return 0;
+        if (sz == 0) return 0;           //corner cases 1
+        if (sz == 1) return heights[0];  //corner cases 2
         if (heights[sz - 1] != 0)
         {
             heights.emplace_back(0);
@@ -45,11 +46,49 @@ public:
         }
 
         int cm = heights[0];    //current max 
-        stack<int> stk; 
-        stk.push(0);            //first pivot 
+        stack<int> stk;         //trace point, init with peek, update later while tracing  
+
+        int p = 1, q = 0;       // q ... p
+        bool isUp = true;
+        while (p < sz)
+        {
+            if (heights[p] >= heights[p - 1])
+            {
+                isUp = true;
+                ++p;
+                continue;
+            }
+            
+            if (isUp)
+            {
+                isUp = false;
+                stk.push(p - 1);
+            }
 
 
+            while (!stk.empty() && heights[stk.top()] > heights[p])
+            {
+                q = stk.top();
+                stk.pop();
+                while (q >= 0 && heights[q] >= heights[p] && (q == 0 || heights[q] <= heights[q + 1]))
+                {
+                    if (heights[q] > heights[p])
+                        cm = max(cm, heights[q] * (p - q));
+                    else
+                        cm = max(cm, heights[q] * (p - q + 1));
+                    --q;
+                }
 
+                if (q >= 0 && heights[q] < heights[p] && heights[q] <= heights[q + 1])
+                    break;
+                else q = -1;
+            }
+            
+            if (q >= 0) stk.push(q);
+            if (stk.empty()) stk.push(0);
+
+
+        }
 
 
         return cm;
