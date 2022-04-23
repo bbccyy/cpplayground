@@ -66,7 +66,7 @@ public:
             }
 
 
-            while (!stk.empty() && heights[stk.top()] > heights[p])
+            while (!stk.empty() && heights[stk.top()] >= heights[p])
             {
                 q = stk.top();
                 stk.pop();
@@ -87,9 +87,8 @@ public:
             if (q >= 0) stk.push(q);
             if (stk.empty()) stk.push(0);
 
-
+            ++p;
         }
-
 
         return cm;
     }
