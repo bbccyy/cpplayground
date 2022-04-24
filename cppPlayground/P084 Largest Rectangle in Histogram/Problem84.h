@@ -33,6 +33,11 @@ public:
         return a > b ? a : b;
     }
 
+    inline int min(int a, int b)
+    {
+        return a > b ? b : a;
+    }
+
     int largestRectangleArea(vector<int>& heights) {
         //maintain looping invariants
 
@@ -45,13 +50,15 @@ public:
             ++sz;
         }
 
-        int cm = heights[0];    //current max 
-        stack<int> stk;         //trace point, init with peek, update later while tracing  
+        int ret = heights[0];    //current max 
+        int low = heights[0];    //current lowest height
+        stack<int> stk;          //trace point, init with peek, update later while tracing  
 
-        int p = 1, q = 0;       // q ... p
+        int p = 1, q = 0;        // q ... p
         bool isUp = true;
         while (p < sz)
         {
+
             if (heights[p] >= heights[p - 1])
             {
                 isUp = true;
@@ -69,16 +76,15 @@ public:
             while (!stk.empty() && heights[stk.top()] >= heights[p])
             {
                 q = stk.top();
-                stk.pop();
-                while (q >= 0 && heights[q] >= heights[p] && (q == 0 || heights[q] <= heights[q + 1]))
+                while (q > 0 && heights[q] >= heights[p] && (q == stk.top() || heights[q] <= heights[q + 1]))
                 {
                     if (heights[q] > heights[p])
-                        cm = max(cm, heights[q] * (p - q));
+                        ret = max(ret, heights[q] * (p - q));
                     else
-                        cm = max(cm, heights[q] * (p - q + 1));
+                        ret = max(ret, heights[p] * (p - q + 1));
                     --q;
                 }
-
+                stk.pop();
                 if (q >= 0 && heights[q] < heights[p] && heights[q] <= heights[q + 1])
                     break;
                 else q = -1;
@@ -87,10 +93,16 @@ public:
             if (q >= 0) stk.push(q);
             if (stk.empty()) stk.push(0);
 
+            if (stk.top() == 0 && low > 0)
+            {
+                ret = max(ret, low * p);
+            }
+
+            low = min(low, heights[p]);  //refresh low
             ++p;
         }
 
-        return cm;
+        return ret;
     }
 
 
@@ -135,8 +147,9 @@ public:
     {
         vector<int> input = { 2,1,2 };
 
-        auto ret = largestRectangleAreaSlow(input);
+        auto ret1 = largestRectangleAreaSlow(input);
+        auto ret2 = largestRectangleArea(input);
 
-        cout << "ret = " << ret;
+        cout << "ret1 = " << ret1 << " ret2 = " << ret2;
     }
 };
