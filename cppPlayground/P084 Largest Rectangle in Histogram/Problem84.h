@@ -72,14 +72,16 @@ public:
                 stk.push(p - 1);
             }
 
-
             while (!stk.empty() && heights[stk.top()] >= heights[p])
             {
                 q = stk.top();
                 while (q > 0 && heights[q] >= heights[p] && (q == stk.top() || heights[q] <= heights[q + 1]))
                 {
                     if (heights[q] > heights[p])
+                    {
                         ret = max(ret, heights[q] * (p - q));
+                        ret = max(ret, heights[p] * (p - q + 1));
+                    }
                     else
                         ret = max(ret, heights[p] * (p - q + 1));
                     --q;
