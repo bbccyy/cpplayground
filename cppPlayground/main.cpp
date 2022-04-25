@@ -10,6 +10,7 @@
 #include "P078 Subsets/Problem78.h"
 #include "P081 Search in Rotated Sorted Array II/Problem81.h"
 #include "P084 Largest Rectangle in Histogram/Problem84.h"
+#include "P085 Maximal Rectangle/Problem85.h"
 
 using namespace std;
 
@@ -18,7 +19,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem84();
+    auto sln = new Problem85();
     sln->runTest();
 	//system("pause");
     return 0;
