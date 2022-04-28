@@ -66,7 +66,7 @@ public:
 
     int maximalRectangleOnLine(vector<int> input)
     {
-        //TODO 
+        
         return 0;
     }
 
