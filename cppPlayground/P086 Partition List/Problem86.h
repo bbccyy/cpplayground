@@ -36,7 +36,23 @@ class Problem86
 {
 public:
 	ListNode* partition(ListNode* head, int x) {
+		//corner case
+		if (head == nullptr || x < 1) return head;
 
+		//prepare variables
+		ListNode* a_h, *a, *b_h, *b, *p;
+		p = head;
+		int tar = 0;
+
+		//find x position
+		while (--x > 0 && p != nullptr) p = p->next;
+		if (p == nullptr) return head;
+		else tar = p->val;
+
+		//split to two lists
+
+
+		//combine and return
 
 	}
 
