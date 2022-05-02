@@ -40,7 +40,7 @@ public:
 		if (head == nullptr || x < 1) return head;
 
 		//prepare variables
-		ListNode* a_h, *a, *b_h, *b, *p;
+		ListNode *a_h = nullptr, *a, *b_h = nullptr, *b, *p;
 		p = head;
 		int tar = 0;
 
@@ -50,7 +50,36 @@ public:
 		else tar = p->val;
 
 		//split to two lists
-
+		p = head;
+		while (p != nullptr)
+		{
+			if (p->val < tar)
+			{
+				if (a_h == nullptr)
+				{
+					a_h = p;
+					a = p;
+				}
+				else
+				{
+					a->next = p;
+					a = a->next;
+				}
+			}
+			else
+			{
+				if (b_h == nullptr)
+				{
+					b_h = p;
+					b = p;
+				}
+				else
+				{
+					b->next = p;
+					b = b->next;
+				}
+			}
+		}
 
 		//combine and return
 
