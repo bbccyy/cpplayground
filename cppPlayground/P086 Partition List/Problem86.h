@@ -37,22 +37,24 @@ class Problem86
 public:
 	ListNode* partition(ListNode* head, int x) {
 		//corner case
-		if (head == nullptr || x < 1) return head;
+		if (head == nullptr) return head;
 
 		//prepare variables
-		ListNode *a_h = nullptr, *a, *b_h = nullptr, *b, *p;
+		ListNode *a_h = nullptr, *a = nullptr, *b_h = nullptr, *b = nullptr, *p = nullptr, *next = nullptr;
 		p = head;
 		int tar = 0;
 
 		//find x position
-		while (--x > 0 && p != nullptr) p = p->next;
-		if (p == nullptr) return head;
-		else tar = p->val;
+		//while (--x > 0 && p != nullptr) p = p->next;
+		//if (p == nullptr) return head;
+		//else tar = p->val;
+		tar = x;
 
 		//split to two lists
-		p = head;
+		//p = head;
 		while (p != nullptr)
 		{
+			next = p->next;
 			if (p->val < tar)
 			{
 				if (a_h == nullptr)
@@ -79,14 +81,41 @@ public:
 					b = b->next;
 				}
 			}
+			p = next;
 		}
 
 		//combine and return
+		if (a_h != nullptr)
+		{
+			head = a_h;
+			a->next = b_h;
+			if (b != nullptr) b->next = nullptr;
+		}
+		else
+		{
+			head = b_h;
+			if (b != nullptr) b->next = nullptr;
+		}
 
+		return head;
 	}
 
 	void runTest()
 	{
+		ListNode* a = new ListNode(5);
+		ListNode* b = new ListNode(-5);
+		a->next = b;
+		b->next = nullptr;
 
+		ListNode* ret = partition(a, -4);
+
+		cout << "ret = " << endl;
+		while (ret != nullptr)
+		{
+			cout << ret->val << ", ";
+			ret = ret->next;
+		}
+
+		delete a, b;
 	}
 };
