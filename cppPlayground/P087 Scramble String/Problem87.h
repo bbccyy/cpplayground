@@ -42,18 +42,18 @@ Output: true
 Constraints:
 s1.length == s2.length
 1 <= s1.length <= 30
-s1 and s2 consist of lowercase English letters.
+s1 and s2 consist of lowercase English letters. 
 */
 
 class Problem87
 {
 public:
     bool isScramble(string s1, string s2) {
-
+        //todo 
     }
 
     void runTest()
     {
-
+        //todo 
     }
 };
