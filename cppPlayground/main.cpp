@@ -12,6 +12,7 @@
 #include "P084 Largest Rectangle in Histogram/Problem84.h"
 #include "P085 Maximal Rectangle/Problem85.h"
 #include "P086 Partition List/Problem86.h"
+#include "P087 Scramble String/Problem87.h"
 
 using namespace std;
 
@@ -20,7 +21,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem86();
+    auto sln = new Problem87();
     sln->runTest();
 	//system("pause");
     return 0;
