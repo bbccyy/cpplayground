@@ -48,12 +48,31 @@ s1 and s2 consist of lowercase English letters.
 class Problem87
 {
 public:
+    string _s1;
+    string _s2;
+public:
     bool isScramble(string s1, string s2) {
-        //todo 
+        _s1 = s1;
+        _s2 = s2;
+        int sz = s1.length();
+        if (sz != s2.length())
+            return false;
+
+        return isScrambleHelper(0, sz);
+    }
+
+    bool isScrambleHelper(int s, int e)
+    {
+
     }
 
     void runTest()
     {
-        //todo 
+        string input1 = "abc";
+        string input2 = "abc";
+
+        auto ret = isScramble(input1, input2);
+
+        cout << ret << endl;
     }
 };
