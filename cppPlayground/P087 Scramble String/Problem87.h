@@ -54,17 +54,39 @@ public:
     bool isScramble(string s1, string s2) {
         _s1 = s1;
         _s2 = s2;
-        int sz = s1.length();
+        int sz = s1.length(); 
         if (sz != s2.length())
             return false;
 
-        return isScrambleHelper(0, sz);
+        return isScrambleHelper(s1, 0, sz);
     }
 
-    bool isScrambleHelper(int s, int e)
+    bool isScrambleHelper(string c, int s, int e)
     {
-        //todo 
+        string sub = _s2.substr(s, e);
+        if (c == sub) return true;
+        if (c.size() <= 1) return false;
 
+        for (int i = 1; i < c.size() - 1; ++i)
+        {
+            //stay
+            if (isScrambleHelper(c.substr(0, i), s, s + i))
+            {
+                if (isScrambleHelper(c.substr(i, c.size()), s + i, e))
+                {
+                    return true;
+                }
+            }
+            //switch
+            if (isScrambleHelper(c.substr(c.size() - i, c.size()), s, s + i))
+            {
+                if (isScrambleHelper(c.substr(0, c.size() - i), s + i, e))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     void runTest()
