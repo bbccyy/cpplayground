@@ -64,6 +64,7 @@ public:
     bool isScrambleHelper(string c, int s, int e)
     {
         string sub = _s2.substr(s, e);
+        cout << "deal with c = " << c << "  sub = " << sub << endl;
         if (c == sub) return true;
         if (c.size() <= 1) return false;
 
@@ -74,16 +75,34 @@ public:
             {
                 if (isScrambleHelper(c.substr(i, c.size()), s + i, e))
                 {
+                    cout << "--find stay! " << c.substr(i, c.size()) << ", " << s + i << ", " << e << endl;
                     return true;
+                }
+                else
+                {
+                    cout << "in stay: " << c.substr(i, c.size()) << ", " << s + i << ", " << e << "fails" << endl;
                 }
             }
-            //switch
-            if (isScrambleHelper(c.substr(c.size() - i, c.size()), s, s + i))
+            else
             {
-                if (isScrambleHelper(c.substr(0, c.size() - i), s + i, e))
+                cout << "stay: " << c.substr(0, i) << ", " << s << ", " << s + i << "fails" << endl;
+            }
+            //switch
+            if (isScrambleHelper(c.substr(0, i), e - i, e))
+            {
+                if (isScrambleHelper(c.substr(i, c.size()), s, e - i))
                 {
+                    cout << "--find switch! " << c.substr(0, c.size() - i) << ", " << s + i << ", " << e << endl;
                     return true;
                 }
+                else
+                {
+                    cout << "in switch: " << c.substr(0, c.size() - i) << ", " << s + i << ", " << e << "fails" << endl;
+                }
+            }
+            else
+            {
+                cout << "switch: " << c.substr(c.size() - i, c.size()) << ", " << s << ", " << s + i << "fails" << endl;
             }
         }
         return false;
@@ -91,8 +110,8 @@ public:
 
     void runTest()
     {
-        string input1 = "abc";
-        string input2 = "abc";
+        string input1 = "great";
+        string input2 = "rgeat";
 
         auto ret = isScramble(input1, input2);
 
