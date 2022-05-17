@@ -63,12 +63,12 @@ public:
 
     bool isScrambleHelper(string c, int s, int e)
     {
-        string sub = _s2.substr(s, e);
+        string sub = _s2.substr(s, e - s);
         cout << "deal with c = " << c << "  sub = " << sub << endl;
         if (c == sub) return true;
         if (c.size() <= 1) return false;
 
-        for (int i = 1; i < c.size() - 1; ++i)
+        for (int i = 1; i < c.size(); ++i)
         {
             //stay
             if (isScrambleHelper(c.substr(0, i), s, s + i))
