@@ -13,6 +13,7 @@
 #include "P085 Maximal Rectangle/Problem85.h"
 #include "P086 Partition List/Problem86.h"
 #include "P087 Scramble String/Problem87.h"
+#include "P088 Merge Sorted Array/Problem88.h"
 
 using namespace std;
 
@@ -21,7 +22,7 @@ int main()
     //auto sln10 = new Problem10();
 	//sln10->runTest();
 
-    auto sln = new Problem87();
+    auto sln = new Problem88();
     sln->runTest();
 	//system("pause");
     return 0;
