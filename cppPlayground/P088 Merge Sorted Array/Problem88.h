@@ -46,11 +46,37 @@ class Problem88
 {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        for (int i = m - 1; i >= 0; --i)
+        {
+            nums1[i + n] = nums1[i];
+        }
 
+        for (int i = 0, p = n, q = 0; i < m + n; ++i)
+        {
+            if (p < m + n && q < n)
+            {
+                if (nums1[p] < nums2[q])
+                {
+                    nums1[i] = nums1[p++];
+                }
+                else
+                {
+                    nums1[i] = nums1[q++];
+                }
+            }
+            else
+            {
+                if (p < m + n)
+                    nums1[i] = nums1[p++];
+                else
+                    nums1[i] = nums1[q++];
+            }
+        }
+        return;
     }
 
     void runTest()
     {
-
+        //todo 
     }
 };
