@@ -77,6 +77,17 @@ public:
 
     void runTest()
     {
-        //todo 
+        //nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+        vector<int> input1 = { 1,2,3,0,0,0 };
+        vector<int> input2 = { 2,5,6 };
+        merge(input1, 3, input2, 3);
+
+        cout << "ret = [";
+        for (auto v : input1)
+        {
+            cout << v << " ";
+        }
+        cout << "]" << endl;
+
     }
 };
