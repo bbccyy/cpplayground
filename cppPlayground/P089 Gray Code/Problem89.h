@@ -30,9 +30,22 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
 - 01 and 00 differ by one bit
 
 000
+(001) or 010 or 100
 001
-101      011
-111 100  111  010
+101 or (011) or 000
+011
+(111) or 001 or 010
+111
+011 or (101) or 110
+101
+001 or 111 or (100)
+100
+000 or (110) or 101
+110
+111 or (010) or 100
+010
+(000) or 110 or 011
+000
 
 Example 2:
 Input: n = 1
@@ -44,9 +57,11 @@ Constraints:
 class Problem89 {
 public:
     vector<int> grayCode(int n) {
-        //it's a problem of tree searching
-        //brutal force search could be OK
-        //make branch pruning clean and fast
+
+        //todo 
+
+
+
     }
 
     void runTest()
