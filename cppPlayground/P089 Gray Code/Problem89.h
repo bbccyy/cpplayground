@@ -58,10 +58,6 @@ class Problem89 {
 public:
     vector<int> grayCode(int n) {
 
-        //todo 
-
-
-
     }
 
     void runTest()
