@@ -57,7 +57,7 @@ Constraints:
 class Problem89 {
 public:
     vector<int> grayCode(int n) {
-
+        //try find a pattern to loop through all possible output at once
     }
 
     void runTest()
