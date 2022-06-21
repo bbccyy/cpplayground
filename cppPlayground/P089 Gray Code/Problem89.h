@@ -51,7 +51,7 @@ Example 2:
 Input: n = 1
 Output: [0,1]
 
-Constraints:
+Constraints: 
 1 <= n <= 16
 */
 class Problem89 {
@@ -59,7 +59,7 @@ public:
     vector<int> grayCode(int n) {
         //try find a pattern to loop through all possible output at once
         //first increase, then decrease 
-
+        //todo 
 
     }
 
