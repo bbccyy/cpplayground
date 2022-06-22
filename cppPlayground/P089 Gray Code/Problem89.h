@@ -42,7 +42,7 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
 100
 000 or (110) or 101
 110
-111 or (010) or 100
+111 or (010) or 100 
 010
 (000) or 110 or 011
 000
